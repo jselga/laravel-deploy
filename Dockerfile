@@ -7,4 +7,9 @@ RUN php composer-setup.php --install-dir=. --filename=composer
 RUN mv composer /usr/local/bin/
 COPY . /var/www/html
 RUN composer install
+RUN mv /var/www/html/.env.example /var/www/html/.env
+RUN php artisan key:generate
+# Permís al directori storage però s'hauria de fer més segur
+RUN chmod 777 -R /storage 
+
 EXPOSE 80
