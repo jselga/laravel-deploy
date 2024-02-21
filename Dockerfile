@@ -10,6 +10,6 @@ RUN composer install
 RUN mv /var/www/html/.env.example /var/www/html/.env
 RUN php artisan key:generate
 # Permís al directori storage però s'hauria de fer més segur
-RUN chmod 777 -R /storage 
+RUN chmod 777 -R /var/www/html/storage 
 
 EXPOSE 80
